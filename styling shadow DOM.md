@@ -1,8 +1,10 @@
 # Encapsulated style with Polymer 2.0 and shadow DOM v1
 
+
+
 When you create a custom element with the Polymer API, Polymer attaches a shadow root to it and copies in the contents of the template you provide for it. The HTML elements in your template become children within your custom element's shadow DOM. Shadow DOM provides a mechanism for encapsulation, meaning that elements inside the shadow DOM are not accessible to styling rules external to the shadow DOM. Likewise, styling rules inside the shadow DOM can't "leak" out to affect elements outside the shadow DOM.
 
-``````
+``````html
 <dom-module id="x-foo">
 	<template>
 		<p>I'm a shadow DOM child element of x-foo.</p>
@@ -14,7 +16,7 @@ When you create a custom element with the Polymer API, Polymer attaches a shadow
 
 Shadow DOM permits encapsulation of styling rules for custom elements. You can freely define styling information for your element like fonts, text colors and classes, without fear of the styles or class names applying outside the scope of your element. 
 
-````````
+``````html
 <style>
 .myclass {
 	color:blue;
@@ -43,7 +45,7 @@ For an exploration of the shadow DOM v1 API, see (Eric Bidelman's article).
 
 When used in an HTML document, your element will still inherit any styling information that applies to its parent element:
 
-``````
+``````html
 <head>
 <style>
 	p { 
@@ -66,7 +68,7 @@ When used in an HTML document, your element will still inherit any styling infor
 
 Styles declared inside shadow DOM will override styles declared outside of it:
 
-````````
+``````html
   <style>
     p { 
 	  font-family: sans-serif;
@@ -101,7 +103,7 @@ Styles declared inside shadow DOM will override styles declared outside of it:
 
 The element to which shadow DOM is attached is known as the host. The shadow DOM v1 API allows you to style the host itself:
 
-````````
+``````html
     <dom-module id="x-foo">
 	  <template>
         <style>
@@ -120,7 +122,7 @@ The element to which shadow DOM is attached is known as the host. The shadow DOM
 
 You can use CSS selectors to determine when and how to style the host:
 
-```````
+``````html
  <dom-module id="x-foo">
   <template>
      <style>
@@ -139,7 +141,7 @@ You can use CSS selectors to determine when and how to style the host:
 
 The `:host-context()` syntax allows you to style the host by selecting based on qualities of its parent element:
 
-```````
+``````html
   <dom-module id="x-foo">
   <template>
      <style>
@@ -155,7 +157,7 @@ The `:host-context()` syntax allows you to style the host by selecting based on 
 
 Descendant selectors after `:host` match elements in the shadow DOM. In this example, the CSS selector applies to any `p` element in the shadow tree if the host has class "warning":
 
-`````````
+``````html
  <dom-module id="x-foo">
   <template>
      <style>
@@ -174,7 +176,7 @@ Descendant selectors after `:host` match elements in the shadow DOM. In this exa
 
 You can create slots in an element's template that are populated at runtime using this syntax:
 
-``````
+``````html
 <dom-module id="x-foo">
 	<template>
 		<h1>
@@ -196,7 +198,7 @@ To style slotted content, use the ::slotted(<compound-selector>) syntax.
 
 ::slotted(*) selects all slotted content:
 
-````````````
+``````html
 <dom-module id="x-foo">
 	<template>
       <style>
@@ -222,7 +224,7 @@ To style slotted content, use the ::slotted(<compound-selector>) syntax.
 
 You can select by element type:
 
-````````
+``````html
 <dom-module id="x-foo">
 	<template>
       <style>
@@ -247,7 +249,7 @@ You can select by element type:
 
 You can select by class:
 
-``````
+``````html
 <dom-module id="x-foo">
 	<template>
       <style>
@@ -274,7 +276,7 @@ You can select by class:
 
 And you can select by slot name:
 
-``````````
+``````html
 <dom-module id="x-foo">
 	<template>
       <style>
