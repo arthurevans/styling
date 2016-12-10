@@ -1,4 +1,4 @@
-# Encapsulated style with Polymer and shadow DOM v1
+# Encapsulated style with Polymer 2.0 and shadow DOM v1
 
 When you create a custom element with the Polymer API, Polymer attaches a shadow root to it and copies in the contents of the template you provide for it. The HTML elements in your template become children within your custom element's shadow DOM. Shadow DOM provides a mechanism for encapsulation, meaning that elements inside the shadow DOM are not accessible to styling rules external to the shadow DOM. Likewise, styling rules inside the shadow DOM can't "leak" out to affect elements outside the shadow DOM.
 
